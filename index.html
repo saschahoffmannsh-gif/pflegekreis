@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pflegekreis – Pflege gemeinsam organisieren</title>
+<meta name="description" content="Pflegekreis: Familien koordinieren die Pflege ihrer Angehörigen – Aufgaben, Termine und Updates an einem Ort.">
+<meta name="theme-color" content="#F6F4F1">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="icons/favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="alternate icon" href="favicon.ico?v=2" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=2" sizes="180x180">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Pflegekreis">
+<link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="app.css?v=1793564947">
+</head>
+<body>
+<div id="splash" role="status" aria-live="polite" aria-label="Pflegekreis wird geladen">
+  <div class="sp-in">
+    <div class="sp-logo"><img src="icons/logo.svg?v=2" alt="" width="148" height="148"></div>
+    <h1 class="sp-name">Pflegekreis</h1>
+    <p class="sp-hello" id="sp-hello">Willkommen</p>
+    <p class="sp-sub">Pflege gemeinsam organisieren</p>
+  </div>
+  <div class="sp-foot"><div class="sp-bar" aria-hidden="true"><i></i></div><p class="sp-load">Wird geladen …</p></div>
+  <div class="sp-by" aria-label="von Spoo Studio"><span class="sp-by-l">von</span><span class="sp-by-logo"><picture><source srcset="icons/spoo-mark.webp?v=s2" type="image/webp"><img class="sp-by-mark" src="icons/spoo-mark.png?v=s2" alt="" width="71" height="78"></picture><picture><source srcset="icons/spoo-word.webp?v=s2" type="image/webp"><img class="sp-by-word" src="icons/spoo-word.png?v=s2" alt="Spoo Studio" width="249" height="48"></picture></span></div>
+</div>
+<script>
+/* Ladebildschirm: einmal pro App-Start, genau 2 s (Daten laden dahinter), dann sanft überblenden. Nicht bei Push-Öffnung (pf_push=1) oder Direktlink in den Chat. */
+(function () {
+  var d = document.getElementById("splash"), q = location.search, h = location.hash || "";
+  if (/^#\/chat/.test(h) || /[?&]pf_push=1/.test(q) || /[?&]nosplash\b/.test(q)) { d.parentNode.removeChild(d); return; }
+  try { var n = localStorage.getItem("pf-name"); if (n) document.getElementById("sp-hello").textContent = "Willkommen, " + n; } catch (e) {}
+  document.documentElement.classList.add("splashing");
+  window.PF_SPLASH = { t0: performance.now(), dur: 2000 };
+  setTimeout(function () {
+    d.classList.add("out"); document.documentElement.classList.remove("splashing");
+    setTimeout(function () { if (d.parentNode) d.parentNode.removeChild(d); }, 600);
+  }, window.PF_SPLASH.dur);
+})();
+</script>
+<div id="app"><div class="boot"><img src="icons/logo.svg?v=2" alt="" width="72" height="72"><p>Pflegekreis wird geladen …</p></div></div>
+<div id="toasts" aria-live="polite"></div>
+<script src="config.js?v=1793564947"></script>
+<script src="vendor/supabase.js"></script>
+<script src="demo.js?v=1793564947"></script>
+<script src="partners.js?v=1793564947"></script>
+<script src="app.js?v=1793564947"></script>
+</body>
+</html>
