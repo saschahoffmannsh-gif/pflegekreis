@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="t">
+  <title id="t">Pflegekreis – Vorschlag A: Herz aus zwei sich haltenden Bögen</title>
+  <!-- Abgerundete Variante für App-Logo, Favicon und „any“-Icons -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#13786F"/>
+      <stop offset="1" stop-color="#0B5A53"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="url(#bg)"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="46" transform="translate(0 6)">
+    <!-- rechter Bogen (Koralle, dezent) -->
+    <path d="M256 198 C 268 160 296 140 328 140 C 370 140 400 172 400 218 C 400 280 336 330 256 384" stroke="#F2B49E"/>
+    <!-- linker Bogen (Creme) liegt unten über dem rechten … -->
+    <path d="M256 198 C 244 160 216 140 184 140 C 142 140 112 172 112 218 C 112 280 176 330 256 384" stroke="#F6F4F1"/>
+    <!-- … und oben greift der rechte über den linken: zwei Bögen, die sich gegenseitig halten -->
+    <path d="M256 198 C 262 178 272 162 286 152" stroke="#F2B49E"/>
+  </g>
+</svg>
